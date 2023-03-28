@@ -74,9 +74,10 @@
     });
 
     MenuData.render();
-    $("#menu_" + namespace + "_" + name)
-      .find(".menu-item.selected")[0]
-      .scrollIntoView();
+    var menu_item = $('#menu_' + namespace + '_' + name).find('.menu-item.selected')[0] || null;
+        if(menu_item !== null) {
+        menu_item.scrollIntoView();
+    }
   };
 
   MenuData.close = function (namespace, name) {
@@ -285,9 +286,10 @@
               MenuData.render();
               $.post("http://" + MenuData.ResourceName + "/playsound");
 
-              $("#menu_" + focused.namespace + "_" + focused.name)
-                .find(".menu-item.selected")[0]
-                .scrollIntoView();
+              var menu_item = $('#menu_' + focused.namespace + '_' + focused.name).find('.menu-item.selected')[0] || null;
+                  if(menu_item !== null) {
+                  menu_item.scrollIntoView();
+              }
             }
 
             break;
@@ -322,9 +324,10 @@
               MenuData.render();
               $.post("http://" + MenuData.ResourceName + "/playsound");
 
-              $("#menu_" + focused.namespace + "_" + focused.name)
-                .find(".menu-item.selected")[0]
-                .scrollIntoView();
+              var menu_item = $('#menu_' + focused.namespace + '_' + focused.name).find('.menu-item.selected')[0] || null;
+                  if(menu_item !== null) {
+                  menu_item.scrollIntoView();
+              }
             }
 
             break;
