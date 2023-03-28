@@ -71,7 +71,15 @@ function MenuData.Open(type, namespace, name, data, submit, cancel, change, clos
         MenuData.RegisteredTypes[type].open(namespace, name, menu.data)
     end
 
-    menu.setElement                       = function(i, key, val)
+    menu.setElement = function(i, key, val)
+        if not menu.data.elements[i] then
+            menu.data.elements[i] = {}
+        end
+
+        if not menu.data.elements[i][key] then
+            menu.data.elements[i][key] = {}
+        end
+
         menu.data.elements[i][key] = val
     end
 
